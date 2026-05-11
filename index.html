@@ -1,481 +1,973 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wuevas — AI Tools for Real Life</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+  <title>Wuevas | Custom Software, Mobile Apps, Cloud Infrastructure & Business Systems</title>
+  <meta name="description"
+    content="Wuevas builds custom software, mobile apps, enterprise systems, billing platforms, inventory systems, payroll solutions, dashboards, e-commerce stores, AWS and Firebase infrastructure, and database migrations." />
+  <meta name="keywords"
+    content="custom software development, mobile app development, enterprise software, billing systems, inventory management software, payroll systems, business dashboards, ecommerce development, AWS infrastructure, Firebase development, database migration, Excel to software" />
+  <meta name="author" content="Wuevas" />
+  <meta name="robots" content="index, follow" />
+
+  <meta property="og:title" content="Wuevas | Multiple IT Solutions for Growing Businesses" />
+  <meta property="og:description"
+    content="From mobile apps and enterprise software to dashboards, cloud infrastructure, e-commerce and AI-powered career tools." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://wuevas.com" />
+  <meta property="og:image" content="https://wuevas.com/og-image.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Wuevas",
+      "url": "https://wuevas.com",
+      "description": "Wuevas provides multiple IT solutions including custom software development, mobile development, enterprise systems, cloud infrastructure, dashboards, e-commerce and database migrations.",
+      "sameAs": ["https://careershift.wuevas.com"],
+      "serviceType": [
+        "Mobile Development",
+        "Enterprise Software Development",
+        "Billing Systems",
+        "Inventory Management Systems",
+        "Payroll Systems",
+        "Business Dashboards",
+        "E-Commerce Solutions",
+        "AWS Infrastructure",
+        "Firebase Infrastructure",
+        "Database Migrations",
+        "Excel to Software Solutions"
+      ]
+    }
+  </script>
+
+  <style>
     :root {
-      --bg: #0a0a0a;
-      --surface: #111111;
-      --border: #1e1e1e;
-      --accent: #c8f135;
-      --accent2: #3b82f6;
-      --text: #f0f0f0;
-      --muted: #666;
-      --card-bg: #131313;
+      --bg: #07111f;
+      --bg-2: #0b1730;
+      --surface: rgba(255, 255, 255, 0.075);
+      --surface-2: rgba(255, 255, 255, 0.12);
+      --text: #f7fbff;
+      --muted: #a9b6c8;
+      --line: rgba(255, 255, 255, 0.14);
+      --primary: #62e6ff;
+      --primary-2: #8b5cf6;
+      --accent: #9cff6d;
+      --warning: #ffd166;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+      --radius: 26px;
     }
 
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
-      background: var(--bg);
+      font-family: 'Inter', sans-serif;
       color: var(--text);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
+      background:
+        radial-gradient(circle at 15% 15%, rgba(98, 230, 255, 0.18), transparent 28%),
+        radial-gradient(circle at 85% 5%, rgba(139, 92, 246, 0.22), transparent 32%),
+        radial-gradient(circle at 80% 85%, rgba(156, 255, 109, 0.08), transparent 28%),
+        linear-gradient(135deg, var(--bg), var(--bg-2));
       line-height: 1.6;
       overflow-x: hidden;
     }
 
-    /* NOISE OVERLAY */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
       pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: linear-gradient(to bottom, black, transparent 75%);
       z-index: 0;
     }
 
-    /* NAV */
-    nav {
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 17, 31, 0.78);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1.25rem 2.5rem;
-      border-bottom: 1px solid var(--border);
-      background: rgba(10,10,10,0.85);
-      backdrop-filter: blur(12px);
+      gap: 20px;
     }
 
     .logo {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 1.4rem;
-      letter-spacing: -0.02em;
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .logo span { color: var(--accent); }
-
-    nav a.cta-nav {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--bg);
-      background: var(--accent);
-      padding: 0.5rem 1.25rem;
-      border-radius: 100px;
-      text-decoration: none;
-      transition: opacity 0.2s;
-    }
-
-    nav a.cta-nav:hover { opacity: 0.85; }
-
-    /* HERO */
-    .hero {
-      min-height: 100vh;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 8rem 2.5rem 4rem;
-      position: relative;
-      z-index: 1;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.04em;
     }
 
-    .hero-label {
+    .logo-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      display: grid;
+      place-items: center;
+      box-shadow: 0 12px 35px rgba(98, 230, 255, 0.22);
+      font-weight: 900;
+      color: #07111f;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 2rem;
-      opacity: 0;
-      animation: fadeUp 0.6s ease 0.1s forwards;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 999px;
+      padding: 0.92rem 1.35rem;
+      font-weight: 800;
+      font-size: 0.92rem;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      border: 1px solid transparent;
+      white-space: nowrap;
     }
 
-    .hero-label::before {
-      content: '';
-      width: 24px; height: 1px;
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #07111f;
+      box-shadow: 0 18px 45px rgba(98, 230, 255, .22);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, .08);
+      border-color: var(--line);
+      color: var(--text);
+    }
+
+    .btn-small {
+      padding: 0.72rem 1.1rem;
+      font-size: 0.85rem;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      align-items: center;
+      padding: 130px 0 70px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 13px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .07);
+      color: var(--primary);
+      font-weight: 800;
+      font-size: .78rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    .pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
       background: var(--accent);
+      box-shadow: 0 0 0 8px rgba(156, 255, 109, .12);
+      animation: pulse 1.7s infinite ease-in-out;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: -0.05em;
+      line-height: 1.02;
     }
 
     h1 {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: clamp(3rem, 8vw, 7rem);
-      line-height: 0.95;
-      letter-spacing: -0.03em;
-      max-width: 900px;
-      opacity: 0;
-      animation: fadeUp 0.7s ease 0.2s forwards;
+      font-size: clamp(3rem, 7vw, 6.6rem);
+      max-width: 850px;
+      margin-bottom: 24px;
     }
 
-    h1 .highlight {
-      color: var(--accent);
-      position: relative;
-      display: inline-block;
+    .gradient-text {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
-    .hero-sub {
-      margin-top: 2rem;
-      font-size: 1.1rem;
+    .hero-copy {
+      max-width: 650px;
       color: var(--muted);
-      max-width: 480px;
-      font-weight: 300;
-      opacity: 0;
-      animation: fadeUp 0.7s ease 0.35s forwards;
+      font-size: 1.12rem;
+      margin-bottom: 30px;
     }
 
     .hero-actions {
       display: flex;
-      gap: 1rem;
-      align-items: center;
-      margin-top: 2.5rem;
       flex-wrap: wrap;
-      opacity: 0;
-      animation: fadeUp 0.7s ease 0.5s forwards;
+      gap: 14px;
+      margin-bottom: 34px;
     }
 
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: var(--accent);
-      color: var(--bg);
-      font-weight: 500;
-      font-size: 0.95rem;
-      padding: 0.85rem 2rem;
-      border-radius: 100px;
-      text-decoration: none;
-      transition: transform 0.2s, opacity 0.2s;
+    .trust-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      max-width: 650px;
     }
 
-    .btn-primary:hover { transform: translateY(-2px); opacity: 0.9; }
+    .trust-card {
+      background: rgba(255, 255, 255, .07);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+    }
 
-    .btn-ghost {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
+    .trust-card strong {
+      display: block;
+      font-size: 1.35rem;
+      margin-bottom: 3px;
+    }
+
+    .trust-card span {
       color: var(--muted);
-      font-size: 0.9rem;
-      text-decoration: none;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 2px;
-      transition: color 0.2s, border-color 0.2s;
+      font-size: .84rem;
     }
 
-    .btn-ghost:hover { color: var(--text); border-color: var(--text); }
-
-    /* GLOW */
-    .hero-glow {
-      position: absolute;
-      top: 20%;
-      right: -10%;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(200,241,53,0.07) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* MARQUEE */
-    .marquee-wrap {
-      overflow: hidden;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 1rem 0;
+    .hero-panel {
+      background: linear-gradient(180deg, rgba(255, 255, 255, .13), rgba(255, 255, 255, .055));
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
       position: relative;
-      z-index: 1;
+      overflow: hidden;
+      animation: floatCard 5s infinite ease-in-out;
+    }
+
+    .hero-panel::before {
+      content: '';
+      position: absolute;
+      inset: -40%;
+      background: conic-gradient(from 180deg, transparent, rgba(98, 230, 255, .18), transparent, rgba(156, 255, 109, .12), transparent);
+      animation: rotateGlow 10s linear infinite;
+    }
+
+    .panel-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .browser-bar {
+      height: 42px;
+      border-radius: 16px;
+      background: rgba(7, 17, 31, .75);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 0 14px;
+      border: 1px solid var(--line);
+      margin-bottom: 16px;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .25);
+    }
+
+    .mock-card {
+      background: rgba(7, 17, 31, .72);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 14px;
+    }
+
+    .mock-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+
+    .mock-card p {
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .metric {
+      border-radius: 18px;
+      background: rgba(255, 255, 255, .075);
+      border: 1px solid var(--line);
+      padding: 16px;
+    }
+
+    .metric small {
+      color: var(--muted);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .metric strong {
+      font-size: 1.55rem;
+    }
+
+    .marquee {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      overflow: hidden;
+      padding: 16px 0;
+      background: rgba(255, 255, 255, .035);
     }
 
     .marquee-track {
       display: flex;
-      gap: 3rem;
-      animation: marquee 20s linear infinite;
       width: max-content;
+      gap: 34px;
+      animation: marquee 24s linear infinite;
     }
 
-    .marquee-item {
-      font-family: 'Syne', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
+    .marquee span {
       color: var(--muted);
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-size: .8rem;
       white-space: nowrap;
+    }
+
+    section {
+      padding: 90px 0;
+    }
+
+    .section-head {
       display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .marquee-item::after {
-      content: '✦';
-      color: var(--accent);
-      font-size: 0.6rem;
-    }
-
-    /* PRODUCTS */
-    .section {
-      padding: 6rem 2.5rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .section-label {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1rem;
-    }
-
-    .section-title {
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      letter-spacing: -0.02em;
-      max-width: 600px;
-      margin-bottom: 3rem;
-    }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1px;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-    }
-
-    .product-card {
-      background: var(--card-bg);
-      padding: 2.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      transition: background 0.2s;
-      text-decoration: none;
-      color: inherit;
-      border-right: 1px solid var(--border);
-    }
-
-    .product-card:last-child { border-right: none; }
-    .product-card:hover { background: #181818; }
-
-    .product-icon {
-      width: 40px; height: 40px;
-      border-radius: 10px;
-      background: var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-    }
-
-    .product-tag {
-      display: inline-block;
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.25rem 0.6rem;
-      border-radius: 100px;
-      background: rgba(200,241,53,0.1);
-      color: var(--accent);
-      width: fit-content;
-    }
-
-    .product-tag.soon {
-      background: rgba(102,102,102,0.15);
-      color: var(--muted);
-    }
-
-    .product-name {
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 1.4rem;
-      letter-spacing: -0.02em;
-    }
-
-    .product-desc {
-      font-size: 0.9rem;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .product-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--accent);
-      margin-top: auto;
-    }
-
-    /* ABOUT STRIP */
-    .about-strip {
-      padding: 5rem 2.5rem;
-      border-top: 1px solid var(--border);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    .about-strip h2 {
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-    }
-
-    .about-strip h2 em {
-      font-style: normal;
-      color: var(--accent);
-    }
-
-    .about-right p {
-      color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.8;
-      margin-bottom: 1rem;
-    }
-
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem 2.5rem;
-      display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: space-between;
-      position: relative;
-      z-index: 1;
+      gap: 30px;
+      margin-bottom: 36px;
     }
 
-    footer .logo { font-size: 1rem; }
+    .section-head h2 {
+      font-size: clamp(2.1rem, 4vw, 4rem);
+      max-width: 760px;
+    }
 
-    footer p {
-      font-size: 0.8rem;
+    .section-head p {
       color: var(--muted);
+      max-width: 460px;
     }
 
-    /* ANIMATIONS */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .service-card {
+      min-height: 230px;
+      background: rgba(255, 255, 255, .075);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+      transition: transform .22s ease, background .22s ease, border-color .22s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      background: rgba(255, 255, 255, .11);
+      border-color: rgba(98, 230, 255, .38);
+    }
+
+    .service-card::after {
+      content: '';
+      position: absolute;
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(98, 230, 255, .16), transparent 70%);
+      right: -60px;
+      top: -60px;
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(98, 230, 255, .2), rgba(139, 92, 246, .2));
+      border: 1px solid var(--line);
+      font-size: 1.4rem;
+      margin-bottom: 18px;
+    }
+
+    .service-card h3 {
+      font-size: 1.27rem;
+      margin-bottom: 10px;
+      letter-spacing: -0.03em;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .career {
+      background: linear-gradient(135deg, rgba(98, 230, 255, .16), rgba(139, 92, 246, .14));
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .career-box {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 26px;
+      align-items: center;
+      background: rgba(7, 17, 31, .55);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .career h2 {
+      font-size: clamp(2rem, 4vw, 4rem);
+      margin-bottom: 16px;
+    }
+
+    .career p {
+      color: var(--muted);
+      max-width: 720px;
+      margin-bottom: 20px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .step {
+      background: rgba(255, 255, 255, .07);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px;
+    }
+
+    .step span {
+      color: var(--primary);
+      font-weight: 900;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .step h3 {
+      font-size: 1.18rem;
+      margin-bottom: 8px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .cta-section {
+      padding-bottom: 110px;
+    }
+
+    .cta-box {
+      text-align: center;
+      padding: 60px 30px;
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(98, 230, 255, .18), transparent 30%),
+        linear-gradient(135deg, rgba(255, 255, 255, .12), rgba(255, 255, 255, .06));
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .cta-box h2 {
+      font-size: clamp(2.2rem, 5vw, 4.8rem);
+      margin-bottom: 16px;
+    }
+
+    .cta-box p {
+      color: var(--muted);
+      max-width: 680px;
+      margin: 0 auto 26px;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      50% {
+        transform: scale(.75);
+        opacity: .65;
+      }
+    }
+
+    @keyframes floatCard {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-14px);
+      }
+    }
+
+    @keyframes rotateGlow {
+      from {
+        transform: rotate(0);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
     }
 
     @keyframes marquee {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
     }
 
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
-      .hero { padding: 7rem 1.5rem 3rem; }
-      .section { padding: 4rem 1.5rem; }
-      .about-strip { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 1.5rem; }
-      .products-grid { grid-template-columns: 1fr; }
-      .product-card { border-right: none; border-bottom: 1px solid var(--border); }
-      .product-card:last-child { border-bottom: none; }
-      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    @media (max-width: 980px) {
+
+      .hero-grid,
+      .career-box {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .section-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+
+      .container,
+      .nav-inner {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .nav-inner {
+        height: 68px;
+      }
+
+      .logo {
+        font-size: 1.18rem;
+      }
+
+      .logo-mark {
+        width: 34px;
+        height: 34px;
+      }
+
+      .hero {
+        padding-top: 105px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .trust-row,
+      .services-grid,
+      .steps,
+      .metric-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-panel,
+      .career-box {
+        padding: 18px;
+        border-radius: 24px;
+      }
+
+      section {
+        padding: 64px 0;
+      }
+
+      .service-card {
+        min-height: auto;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
     }
   </style>
 </head>
+
 <body>
-
-  <nav>
-    <a href="/" class="logo">Wuevas<span>.</span></a>
-    <a href="https://careershift.wuevas.com" class="cta-nav">Try CareerShift →</a>
-  </nav>
-
-  <section class="hero">
-    <div class="hero-glow"></div>
-    <span class="hero-label">AI tools for real life</span>
-    <h1>Build smarter.<br /><span class="highlight">Move faster.</span></h1>
-    <p class="hero-sub">Practical AI tools and services designed for people who have real work to do. No fluff, no subscriptions you don't need.</p>
-    <div class="hero-actions">
-      <a href="https://careershift.wuevas.com" class="btn-primary">Try CareerShift →</a>
-      <a href="#products" class="btn-ghost">See all tools ↓</a>
-    </div>
-  </section>
-
-  <div class="marquee-wrap">
-    <div class="marquee-track">
-      <span class="marquee-item">AI-Powered Tools</span>
-      <span class="marquee-item">Resume Translation</span>
-      <span class="marquee-item">Career Strategy</span>
-      <span class="marquee-item">Local Business Websites</span>
-      <span class="marquee-item">Automation Services</span>
-      <span class="marquee-item">Restaurant Consulting</span>
-      <span class="marquee-item">AI-Powered Tools</span>
-      <span class="marquee-item">Resume Translation</span>
-      <span class="marquee-item">Career Strategy</span>
-      <span class="marquee-item">Local Business Websites</span>
-      <span class="marquee-item">Automation Services</span>
-      <span class="marquee-item">Restaurant Consulting</span>
-    </div>
-  </div>
-
-  <section class="section" id="products">
-    <p class="section-label">What we build</p>
-    <h2 class="section-title">Tools that solve real problems.</h2>
-    <div class="products-grid">
-      <a href="https://careershift.wuevas.com" class="product-card">
-        <div class="product-icon">⚡</div>
-        <span class="product-tag">Live Now</span>
-        <div class="product-name">CareerShift</div>
-        <p class="product-desc">Translate your resume into the language of a new career. Get a strategy report and professional DOCX — no subscription required.</p>
-        <span class="product-link">Try it free →</span>
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="#top" class="logo" aria-label="Wuevas Home">
+        <img src="img/logo-white.png" alt="Wuevas logo" style="height:100px;">
       </a>
-      <div class="product-card">
-        <div class="product-icon">🌐</div>
-        <span class="product-tag soon">Coming Soon</span>
-        <div class="product-name">Business Sites</div>
-        <p class="product-desc">Professional websites for local businesses. Built fast, priced fairly. Contractors, restaurants, and service businesses.</p>
-        <span class="product-link" style="color:var(--muted)">Coming soon</span>
-      </div>
-      <div class="product-card">
-        <div class="product-icon">🤖</div>
-        <span class="product-tag soon">Coming Soon</span>
-        <div class="product-name">Automations</div>
-        <p class="product-desc">Custom AI automations that handle the repetitive work so you can focus on what actually matters.</p>
-        <span class="product-link" style="color:var(--muted)">Coming soon</span>
-      </div>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#career-shift">CareerShift</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="https://careershift.wuevas.com" class="btn btn-primary btn-small">Try CareerShift →</a>
     </div>
-  </section>
+  </header>
 
-  <div class="about-strip">
-    <div class="about-left">
-      <h2>Built by someone who knows what <em>real work</em> looks like.</h2>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><span class="pulse"></span> Multiple IT solutions for real businesses</div>
+          <h1>Software that helps your business <span class="gradient-text">sell, operate and grow.</span></h1>
+          <p class="hero-copy">Wuevas designs and builds mobile apps, enterprise platforms, billing systems, inventory
+            software, payroll tools, dashboards, e-commerce stores, cloud infrastructure and AI-powered solutions.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Start a project →</a>
+            <a href="#services" class="btn btn-secondary">Explore services</a>
+          </div>
+          <div class="trust-row" aria-label="Wuevas strengths">
+            <div class="trust-card"><strong>Web + Mobile</strong><span>Responsive products for every screen.</span>
+            </div>
+            <div class="trust-card"><strong>Cloud Ready</strong><span>AWS, Firebase and scalable databases.</span></div>
+            <div class="trust-card"><strong>Business First</strong><span>Solutions focused on real operations.</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-panel" aria-label="Business software preview">
+          <div class="panel-content">
+            <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <div class="mock-card">
+              <h3>Business Command Center</h3>
+              <p>Track sales, inventory, billing, payroll and performance from one clean digital system.</p>
+            </div>
+            <div class="metric-grid">
+              <div class="metric"><small>Automation</small><strong>Faster</strong></div>
+              <div class="metric"><small>Reports</small><strong>Real-time</strong></div>
+              <div class="metric"><small>Apps</small><strong>iOS + Android</strong></div>
+              <div class="metric"><small>Cloud</small><strong>AWS + Firebase</strong></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Mobile Development</span><span>Enterprise Software</span><span>Billing Systems</span><span>Inventory
+          Management</span><span>Payroll Systems</span><span>Business Dashboards</span><span>E-Commerce</span><span>AWS
+          Infrastructure</span><span>Firebase</span><span>Database Migrations</span><span>Excel to Software</span>
+        <span>Mobile Development</span><span>Enterprise Software</span><span>Billing Systems</span><span>Inventory
+          Management</span><span>Payroll Systems</span><span>Business Dashboards</span><span>E-Commerce</span><span>AWS
+          Infrastructure</span><span>Firebase</span><span>Database Migrations</span><span>Excel to Software</span>
+      </div>
     </div>
-    <div class="about-right">
-      <p>Wuevas is built by Jose Bonaguro — a restaurant manager turned tech entrepreneur based in Tampa, Florida. A decade of managing real operations, now building AI tools that actually work for real people.</p>
-      <p>No VC funding. No bloated team. Just practical tools built with care.</p>
-    </div>
-  </div>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow"><span class="pulse"></span> What we build</div>
+            <h2>Technology services made to solve operational problems.</h2>
+          </div>
+          <p>Each service is written with clear searchable language so Google and potential customers understand exactly
+            what Wuevas offers.</p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon">📱</div>
+            <h3>Mobile Development</h3>
+            <p>Design and development of high-performance mobile applications for iOS and Android, focused on usability,
+              speed and scalability.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">🏢</div>
+            <h3>Enterprise Software Development</h3>
+            <p>Custom business solutions tailored to optimize operations, improve efficiency and support company growth.
+            </p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">🧾</div>
+            <h3>Billing Systems</h3>
+            <p>Automated invoicing and billing systems that streamline financial processes, reduce manual work and
+              support compliance needs.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">📦</div>
+            <h3>Inventory Management Systems</h3>
+            <p>Real-time inventory software to track stock, manage products, control movements and improve purchasing
+              decisions.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">👥</div>
+            <h3>Payroll Systems</h3>
+            <p>Secure payroll solutions for employee payments, deductions, reports and internal administrative control.
+            </p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">📊</div>
+            <h3>Management Reports</h3>
+            <p>Detailed business reports that organize key information and support smarter data-driven decision making.
+            </p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">📈</div>
+            <h3>Business Dashboards</h3>
+            <p>Interactive dashboards that visualize KPIs, sales, operations and financial metrics with real-time
+              insights.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">🎮</div>
+            <h3>Video Game Development</h3>
+            <p>Design and development of interactive video games and gamified experiences across multiple platforms.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">🛒</div>
+            <h3>E-Commerce Solutions</h3>
+            <p>Online stores with secure payment integration, product catalogs, responsive design and optimized user
+              experience.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">☁️</div>
+            <h3>AWS Infrastructure</h3>
+            <p>Setup and management of scalable cloud infrastructure using Amazon Web Services for reliable digital
+              products.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">🔥</div>
+            <h3>Firebase Infrastructure</h3>
+            <p>Backend services using Firebase, including authentication, databases, hosting and serverless application
+              features.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">🗄️</div>
+            <h3>Database Migrations</h3>
+            <p>Safe and efficient database migrations between systems with planning, validation and minimal downtime.
+            </p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">📄</div>
+            <h3>Excel to Software Solutions</h3>
+            <p>Transformation of complex Excel-based processes into robust, automated and scalable software
+              applications.</p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">🤖</div>
+            <h3>AI Automation</h3>
+            <p>Custom automation tools that reduce repetitive tasks, improve response times and help teams work smarter.
+            </p>
+          </article>
+          <article class="service-card">
+            <div class="service-icon">🌐</div>
+            <h3>Business Websites</h3>
+            <p>Modern, fast and SEO-ready websites designed to generate trust, capture leads and convert visitors into
+              customers.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="career" id="career-shift">
+      <div class="container career-box">
+        <div>
+          <div class="eyebrow"><span class="pulse"></span> Live product</div>
+          <h2>Try CareerShift</h2>
+          <p>CareerShift is an AI-powered tool by Wuevas that helps people translate their resume into the language of a
+            new career. It creates a clear strategy report and a professional DOCX without forcing users into
+            unnecessary subscriptions.</p>
+          <a href="https://careershift.wuevas.com" class="btn btn-primary">Try CareerShift now →</a>
+        </div>
+        <div class="mock-card">
+          <h3>From experience to opportunity</h3>
+          <p>Upload your career background, select your target path and receive a practical transition strategy designed
+            to help you move forward with confidence.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow"><span class="pulse"></span> Our process</div>
+            <h2>Simple process. Serious execution.</h2>
+          </div>
+        </div>
+        <div class="steps">
+          <div class="step"><span>01</span>
+            <h3>Understand the business</h3>
+            <p>We identify the problem, the users, the workflow and the expected result before writing code.</p>
+          </div>
+          <div class="step"><span>02</span>
+            <h3>Design the solution</h3>
+            <p>We define the structure, screens, database, integrations and the path to launch.</p>
+          </div>
+          <div class="step"><span>03</span>
+            <h3>Build and improve</h3>
+            <p>We develop, test, deploy and keep improving based on real usage and business feedback.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+      <div class="container">
+        <div class="cta-box">
+          <div class="eyebrow"><span class="pulse"></span> Ready to build?</div>
+          <h2>Let’s turn your idea into software that sells.</h2>
+          <p>Whether you need a mobile app, business system, dashboard, e-commerce store, cloud setup or want to replace
+            a messy Excel process, Wuevas can help you build it.</p>
+          <a href="mailto:contact@wuevas.com?subject=New%20Project%20Inquiry%20-%20Wuevas"
+            class="btn btn-primary">Contact
+            Wuevas →</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    <a href="/" class="logo">Wuevas<span>.</span></a>
-    <p>© 2026 Wuevas. Tampa, Florida.</p>
+    <div class="container footer-inner">
+      <a href="#top" class="logo">
+        <img src="img/logo-white.png" alt="Wuevas logo" style="height:100px;">
+      </a>
+      <p>© 2026 Wuevas. Tampa, Florida. Multiple IT solutions for modern businesses.</p>
+    </div>
   </footer>
-
 </body>
+
 </html>
